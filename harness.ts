@@ -5,6 +5,7 @@
 ///<reference path='../typescript/src/compiler/io.ts'/>
 ///<reference path='../typescript/src/compiler/typescript.ts'/>
 ///<reference path='../typescript/src/services/typescriptServices.ts' />
+///<reference path='../typescript/src/compiler/importLocator.ts' />
 
 // from src/harness/harness.ts, without the test (TODO: remove shim stuff again)
 

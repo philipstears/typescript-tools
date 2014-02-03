@@ -7,6 +7,8 @@ if !has("python")
 endif
 let g:TSSloaded = 1
 
+:py import vim
+
 """ configuration options - use your .vimrc to change defaults
 
 " assume tss is a globally available command
@@ -452,6 +454,7 @@ command! TSStraceOn call TSStrace('on')
 command! TSStraceOff call TSStrace('off')
 function! TSStrace(flag)
 python <<EOF
+import vim
 
 if vim.eval('a:flag')=='on':
   traceFlag = True
@@ -469,6 +472,7 @@ endfunction
 command! -nargs=1 TSScmd call TSScmd(<f-args>,{})
 function! TSScmd(cmd,opts)
 python <<EOF
+import vim
 
 (row,col) = vim.current.window.cursor
 filename  = vim.current.buffer.name

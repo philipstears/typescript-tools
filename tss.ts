@@ -125,8 +125,10 @@ class TSS {
     this.fileNameToContent = new TypeScript.StringHashTable<string>();
 
     // chase dependencies (references and imports)
+	var importLocator = new TypeScript.ImportLocatorWithCache(this);
+	
     this.resolutionResult = TypeScript.ReferenceResolver
-                              .resolve([defaultLibs,file],this,this.compilationSettings.useCaseSensitiveFileResolution);
+                              .resolve([defaultLibs,file],this,this.compilationSettings.useCaseSensitiveFileResolution, importLocator);
     // TODO: what about resolution diagnostics?
     var resolvedFiles = this.resolutionResult.resolvedFiles;
 
